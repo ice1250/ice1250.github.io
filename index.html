@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Simple Map</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-    <style>
+<head>
+  <title>Simple Map</title>
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+  <style>
       /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
+      * element that contains the map. */
       #map {
         height: 100%;
       }
@@ -23,42 +23,49 @@
     <script>
       var map;
       function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 16,
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16,
     center: {lat: 37.579366, lng: 126.894589}/*,
     mapTypeId: 'terrain'*/
   });
 
-  var flightPlanCoordinates = [
-    {lat: 37.579366, lng: 126.894589},
-    {lat: 37.577140, lng: 126.892364},
-    {lat: 37.578186, lng: 126.890591},
-    {lat: 37.580472, lng: 126.892939},
-    {lat: 37.579366, lng: 126.894589}
-  ];
-  var flightPath = new google.maps.Polyline({
-    path: flightPlanCoordinates,
-    geodesic: true,
-    strokeColor: '#FF0000',
-    strokeOpacity: 1.0,
-    strokeWeight: 2
-  });
+        var flightPlanCoordinates = [
+        {lat: 37.579366, lng: 126.894589},
+        {lat: 37.577140, lng: 126.892364},
+        {lat: 37.578186, lng: 126.890591},
+        {lat: 37.580472, lng: 126.892939},
+        {lat: 37.579366, lng: 126.894589}
+        ];
+        var flightPath = new google.maps.Polyline({
+          path: flightPlanCoordinates,
+          geodesic: true,
+          strokeColor: '#FF0000',
+          strokeOpacity: 1.0,
+          strokeWeight: 2
+        });
 
-  flightPath.setMap(map);
+        flightPath.setMap(map);
         
-         var marker = new google.maps.Marker({
-    position: {lat: 37.579366, lng: 126.894589},
-    map: map,
-            icon: {
-      path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
-      scale: 10,
-      rotation: 90
-    },
-    title: 'Hello World!'
-  });
-}
+        var marker = new google.maps.Marker({
+          position: {lat: 37.579366, lng: 126.894589},
+          map: map,
+          icon: {
+            path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+            scale: 10,
+            rotation: 90
+          },
+          title: 'Hello World!'
+        });
+        
+        var marker = new google.maps.Marker({
+          position: {lat: 37.577140, lng: 126.892364},
+          map: map,
+          title: 'Hello World!'
+        });
+
+      }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOqwj0iSA0Lz5zRSPF_EEZKVOnj_vPEhc&callback=initMap"
     async defer></script>
   </body>
-</html>
+  </html>
