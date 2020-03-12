@@ -24,8 +24,8 @@
       var map;
       function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 3,
-    center: {lat: 0, lng: -180},
+    zoom: 8,
+    center: {lat: 37.579366, lng: 126.894589},
     mapTypeId: 'terrain'
   });
 
@@ -33,7 +33,8 @@
     {lat: 37.579366, lng: 126.894589},
     {lat: 37.577140, lng: 126.892364},
     {lat: 37.578186, lng: 126.890591},
-    {lat: 37.580472, lng: 126.892939}
+    {lat: 37.580472, lng: 126.892939},
+    {lat: 37.579366, lng: 126.894589}
   ];
   var flightPath = new google.maps.Polyline({
     path: flightPlanCoordinates,
