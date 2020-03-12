@@ -49,6 +49,11 @@
          var marker = new google.maps.Marker({
     position: {lat: 37.579366, lng: 126.894589},
     map: map,
+            icon: {
+      path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+      scale: 10,
+      rotation: 90
+    },
     title: 'Hello World!'
   });
 }
