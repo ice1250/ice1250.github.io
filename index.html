@@ -19,53 +19,12 @@
     </style>
   </head>
   <body>
-    <div id="map"></div>
-    <script>
-      var map;
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 16,
-    center: {lat: 37.579366, lng: 126.894589}/*,
-    mapTypeId: 'terrain'*/
-  });
+    <input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
 
-        var flightPlanCoordinates = [
-        {lat: 37.579366, lng: 126.894589},
-        {lat: 37.577140, lng: 126.892364},
-        {lat: 37.578186, lng: 126.890591},
-        {lat: 37.580472, lng: 126.892939},
-        {lat: 37.579366, lng: 126.894589}
-        ];
-        var flightPath = new google.maps.Polyline({
-          path: flightPlanCoordinates,
-          geodesic: true,
-          strokeColor: '#FF0000',
-          strokeOpacity: 1.0,
-          strokeWeight: 2
-        });
-
-        flightPath.setMap(map);
-        
-        var marker = new google.maps.Marker({
-          position: {lat: 37.579366, lng: 126.894589},
-          map: map,
-          icon: {
-            path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
-            scale: 10,
-            rotation: 90
-          },
-          title: 'Hello World!'
-        });
-        
-        var marker2 = new google.maps.Marker({
-          position: {lat: 37.577140, lng: 126.892364},
-          map: map,
-          title: 'Hello World!'
-        });
-
-      }
+    <script type="text/javascript">
+        function showAndroidToast(toast) {
+            Android.showToast(toast);
+        }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOqwj0iSA0Lz5zRSPF_EEZKVOnj_vPEhc&callback=initMap"
-    async defer></script>
   </body>
   </html>
