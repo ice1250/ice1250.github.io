@@ -19,19 +19,20 @@
     </style>
   </head>
   <body>
-    <input type="button" value="get" onClick="loadTrackingList()" />
-   <input type="button" value="set" onClick="setTracking('12111')" />
+    <input type="button" value="get" onClick="load()" />
+   <input type="button" value="set" onClick="set('12111')" />
     <script type="text/javascript">
      
-      function loadTrackingList() {
+      function load() {
         Android.loadTrackingList();
       }
-      function setTracking(num) {
-        Android.setTracking(num)
+      function set(num) {
+        Android.setTracking(num);
       }
       function list(test) {
         alert(test);
       }
+      
     </script>
   </body>
   </html>
