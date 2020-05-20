@@ -19,12 +19,10 @@
     </style>
   </head>
   <body>
-    <input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
-
+    <input type="button" value="get" onClick="Android.loadTrackingList()" />
+   <input type="button" value="set" onClick="Android.setTracking('12111')" />
     <script type="text/javascript">
-        function showAndroidToast(toast) {
-            Android.loadUser();
-        }
+     
       function list(test) {
         alert(test);
       }
