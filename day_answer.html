@@ -20,8 +20,7 @@
     <!-- 버튼들 -->
     <button id="button1" class="button">웹뷰 닫기</button>
     <br>
-    <button id="button2" class="button">강의상세</button>
-    <button id="button3" class="button">문제풀기</button>
+    <button id="button2" class="button">학습 종료하기</button>
 
     <script>
         function setAndroidTitle() {
@@ -32,12 +31,12 @@
             Android.closeWebView();
         }
 
-        function sendMoveToDetail(){
-            Android.moveToDetail()
+        function sendCompleteStudy(){
+            Android.showDialog("completeStudy", null);
         }
 
         function pressedBackButton() {
-            Android.showDialog("stopAnswer", null)
+            Android.showDialog("stopAnswer", null);
         }
 
         window.onload = function(){
@@ -49,11 +48,7 @@
             sendWebviewClose();
         });
         document.getElementById("button2").addEventListener("click", function() {
-            sendMoveToDetail();
-        });
-        document.getElementById("button3").addEventListener("click", function() {
-            // 문제풀기 페이지로 이동
-            
+            sendCompleteStudy();
         });
     </script>
 </body>
