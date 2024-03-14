@@ -34,6 +34,12 @@
     <button id="button10" class="button">버튼 10</button> -->
 
     <script>
+
+        function callIOS(message) {
+            webkit.messageHandlers.yndiOSScriptHandler.postMessage(message);
+        }
+        // callIOS({"action": "loadURL", "url": API_URL + path});
+
         // 안드로이드와의 통신을 위한 JavaScript 함수
         function sendCallbackToAndroid(buttonId) {
             // 안드로이드에 refreshToken() 함수를 호출
@@ -59,6 +65,9 @@
         function sendDialogType1(){
             Android.showDialog("completeStudy", null)
 
+        }  
+        function pressedBackButton() {
+            Android.closeWebView();
         }
         function sendDialogType2(){
             Android.showDialog("remainStudy", null)

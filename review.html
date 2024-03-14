@@ -15,28 +15,31 @@
     </style>
 </head>
 <body>
-    <h1>DAY상세</h1>
+    <h1>문제풀기</h1>
     
     <!-- 버튼들 -->
     <button id="button1" class="button">웹뷰 닫기</button>
     <br>
-    <button id="button2" class="button">강의상세</button>
-    <button id="button3" class="button">문제풀기</button>
+    <button id="button2" class="button">이전 학습을 완료해야...</button>
+    <button id="button3" class="button">리얼컨버세이션까지 완료</button>
 
     <script>
-
         function setAndroidTitle() {
-            Android.setTitle("DAY 05", "back", "info");
+            Android.setTitle("WEEKLY REVIEW 04", "back", "info");
         }
 
         function sendWebviewClose(){
             Android.closeWebView();
         }
 
-        function sendMoveToDetail(){
-            Android.moveToDetail("123");
+        function sendremainStudy(){
+            Android.showDialog("remainStudy", null);
         }
-        
+
+        function sendcompleteWeekly(){
+            Android.showDialog("completeWeekly", null);
+        }
+
         function pressedBackButton() {
             Android.closeWebView();
         }
@@ -50,11 +53,10 @@
             sendWebviewClose();
         });
         document.getElementById("button2").addEventListener("click", function() {
-            sendMoveToDetail();
+            sendremainStudy();
         });
         document.getElementById("button3").addEventListener("click", function() {
-            // 문제풀기 페이지로 이동
-            window.location.href = "day_answer.html";
+            sendcompleteWeekly();
         });
     </script>
 </body>
