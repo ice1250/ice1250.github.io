@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android-JavaScript 통신</title>
+    <style>
+        /* 버튼 스타일 */
+        .button {
+            width: 200px; /* 버튼 너비 조정 */
+            height: 50px; /* 버튼 높이 조정 */
+            margin: 10px; /* 버튼 간격 조정 */
+            font-size: 16px; /* 글꼴 크기 조정 */
+        }
+    </style>
+</head>
+<body>
+    <h1>문제풀기</h1>
+    
+    <!-- 버튼들 -->
+    <button id="button1" class="button">웹뷰 닫기</button>
+    <br>
+    <button id="button2" class="button">강의상세</button>
+    <button id="button3" class="button">문제풀기</button>
+
+    <script>
+
+        function sendWebviewClose(){
+            Android.closeWebView();
+        }
+
+        function sendMoveToDetail(){
+            Android.moveToDetail()
+        }
+        
+        // 버튼 클릭 이벤트에 콜백 함수 연결
+        document.getElementById("button1").addEventListener("click", function() {
+            sendWebviewClose();
+        });
+        document.getElementById("button2").addEventListener("click", function() {
+            sendMoveToDetail();
+        });
+        document.getElementById("button3").addEventListener("click", function() {
+            // 문제풀기 페이지로 이동
+            
+        });
+    </script>
+</body>
+</html>
