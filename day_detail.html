@@ -25,12 +25,20 @@
 
     <script>
 
+        function setAndroidTitle() {
+            Android.setTitle("DAY 05", "back", "info");
+        }
+
         function sendWebviewClose(){
             Android.closeWebView();
         }
 
         function sendMoveToDetail(){
-            Android.moveToDetail()
+            Android.moveToDetail();
+        }
+
+        window.onload = function(){
+            setAndroidTitle();
         }
         
         // 버튼 클릭 이벤트에 콜백 함수 연결
