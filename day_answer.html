@@ -24,6 +24,9 @@
     <button id="button3" class="button">문제풀기</button>
 
     <script>
+        function setAndroidTitle() {
+            Android.setTitle("DAY05 문제풀기", "back", "none");
+        }
 
         function sendWebviewClose(){
             Android.closeWebView();
@@ -31,6 +34,14 @@
 
         function sendMoveToDetail(){
             Android.moveToDetail()
+        }
+
+        function pressedBackButton() {
+            Android.showDialog("stopAnswer", null)
+        }
+
+        window.onload = function(){
+            setAndroidTitle();
         }
         
         // 버튼 클릭 이벤트에 콜백 함수 연결
