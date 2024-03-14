@@ -9,12 +9,12 @@
     <h1>Android-JavaScript 통신</h1>
     
     <!-- 버튼들 -->
-    <button id="button1">버튼 1</button>
-    <button id="button2">버튼 2</button>
-    <button id="button3">버튼 3</button>
-    <button id="button4">버튼 4</button>
-    <button id="button5">버튼 5</button>
-    <button id="button6">버튼 6</button>
+    <button id="button1">웹뷰 닫기</button>
+    <button id="button2">외부 브라우저 오픈</button>
+    <button id="button3">오늘의 학습 완료!</button>
+    <button id="button4">학습을 완료해주세요</button>
+    <button id="button5">문제풀이를 그만..</button>
+    <button id="button6">리얼컨버세이션 완료</button>
     <button id="button7">버튼 7</button>
     <button id="button8">버튼 8</button>
     <button id="button9">버튼 9</button>
@@ -27,24 +27,53 @@
             Android.refreshToken();
         }
 
+        function sendWebviewClose(){
+            Android.closeWebView();
+        }
+
+        function sendOpenExternalUrl(){
+            Android.openExternalURL();
+        }
+
+        function sendHideTitleBar(){
+            Android.hideTitleBar();
+        }
+
+        function sendShowTitleBar(){
+            Android.showTitleBar();
+        }
+
+        function sendDialogType1(){
+            Android.showDialog("completeStudy")
+
+        }
+        function sendDialogType2(){
+            Android.showDialog("remainStudy")
+        }
+        function sendDialogType3(){
+            Android.showDialog("stopAnswer")
+        }
+        function sendDialogType4(){
+            Android.showDialog("completeWeekly")
+        }
         // 버튼 클릭 이벤트에 콜백 함수 연결
         document.getElementById("button1").addEventListener("click", function() {
-            sendCallbackToAndroid(1);
+            sendWebviewClose();
         });
         document.getElementById("button2").addEventListener("click", function() {
-            sendCallbackToAndroid(2);
+            sendOpenExternalUrl();
         });
         document.getElementById("button3").addEventListener("click", function() {
-            sendCallbackToAndroid(3);
+            sendDialogType1();
         });
         document.getElementById("button4").addEventListener("click", function() {
-            sendCallbackToAndroid(4);
+            sendDialogType2();
         });
         document.getElementById("button5").addEventListener("click", function() {
-            sendCallbackToAndroid(5);
+            sendDialogType3();
         });
         document.getElementById("button6").addEventListener("click", function() {
-            sendCallbackToAndroid(6);
+            sendDialogType4();
         });
         document.getElementById("button7").addEventListener("click", function() {
             sendCallbackToAndroid(7);
