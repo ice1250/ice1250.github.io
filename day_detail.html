@@ -41,12 +41,16 @@
             Android.closeWebView();
         }
 
+        function sendShowSummaryButton(){
+            Android.showDialog("summary", null);
+        }
+
         window.onload = function(){
             setAndroidTitle();
         }
 
         function onClickHelpButton(){
-            alert("다이얼로그!!");
+            sendShowSummaryButton();
         }
         
         // 버튼 클릭 이벤트에 콜백 함수 연결
