@@ -4,21 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Android-JavaScript 통신</title>
+    <style>
+        /* 버튼 스타일 */
+        .button {
+            width: 200px; /* 버튼 너비 조정 */
+            height: 50px; /* 버튼 높이 조정 */
+            margin: 10px; /* 버튼 간격 조정 */
+            font-size: 16px; /* 글꼴 크기 조정 */
+        }
+    </style>
 </head>
 <body>
     <h1>Android-JavaScript 통신</h1>
     
     <!-- 버튼들 -->
-    <button id="button1">웹뷰 닫기</button>
-    <button id="button2">외부 브라우저 오픈</button>
-    <button id="button3">오늘의 학습 완료!</button>
-    <button id="button4">학습을 완료해주세요</button>
-    <button id="button5">문제풀이를 그만..</button>
-    <button id="button6">리얼컨버세이션 완료</button>
-    <button id="button7">버튼 7</button>
-    <button id="button8">버튼 8</button>
-    <button id="button9">버튼 9</button>
-    <button id="button10">버튼 10</button>
+    <button id="button1" class="button">웹뷰 닫기</button>
+    <button id="button2" class="button">외부 브라우저 오픈</button>
+    <br>
+    <button id="button3" class="button">오늘의 학습 완료!</button>
+    <button id="button4" class="button">학습을 완료해주세요</button>
+    <br>
+    <button id="button5" class="button">문제풀이를 그만..</button>
+    <button id="button6" class="button">리얼컨버세이션 완료</button>
+    <br>
+    <!-- <button id="button7" class="button">버튼 7</button>
+    <button id="button8" class="button">버튼 8</button>
+    <br>
+    <button id="button9" class="button">버튼 9</button>
+    <button id="button10" class="button">버튼 10</button> -->
 
     <script>
         // 안드로이드와의 통신을 위한 JavaScript 함수
@@ -32,7 +45,7 @@
         }
 
         function sendOpenExternalUrl(){
-            Android.openExternalURL();
+            Android.openExternalURL("https://www.yanadoo.co.kr/AInativespeakertalk");
         }
 
         function sendHideTitleBar(){
@@ -44,17 +57,17 @@
         }
 
         function sendDialogType1(){
-            Android.showDialog("completeStudy")
+            Android.showDialog("completeStudy", null)
 
         }
         function sendDialogType2(){
-            Android.showDialog("remainStudy")
+            Android.showDialog("remainStudy", null)
         }
         function sendDialogType3(){
-            Android.showDialog("stopAnswer")
+            Android.showDialog("stopAnswer", null)
         }
         function sendDialogType4(){
-            Android.showDialog("completeWeekly")
+            Android.showDialog("completeWeekly", null)
         }
         // 버튼 클릭 이벤트에 콜백 함수 연결
         document.getElementById("button1").addEventListener("click", function() {
@@ -75,18 +88,18 @@
         document.getElementById("button6").addEventListener("click", function() {
             sendDialogType4();
         });
-        document.getElementById("button7").addEventListener("click", function() {
-            sendCallbackToAndroid(7);
-        });
-        document.getElementById("button8").addEventListener("click", function() {
-            sendCallbackToAndroid(8);
-        });
-        document.getElementById("button9").addEventListener("click", function() {
-            sendCallbackToAndroid(9);
-        });
-        document.getElementById("button10").addEventListener("click", function() {
-            sendCallbackToAndroid(10);
-        });
+        // document.getElementById("button7").addEventListener("click", function() {
+        //     sendCallbackToAndroid(7);
+        // });
+        // document.getElementById("button8").addEventListener("click", function() {
+        //     sendCallbackToAndroid(8);
+        // });
+        // document.getElementById("button9").addEventListener("click", function() {
+        //     sendCallbackToAndroid(9);
+        // });
+        // document.getElementById("button10").addEventListener("click", function() {
+        //     sendCallbackToAndroid(10);
+        // });
     </script>
 </body>
 </html>
