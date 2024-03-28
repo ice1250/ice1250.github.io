@@ -31,12 +31,19 @@
             Android.closeWebView();
         }
 
-        function sendCompleteStudy(){
-            Android.showDialog("completeStudy", null);
+        function sendCompleteDayStudy(){
+            // 키포인트 화면에서 학습 종료하기 버튼을 눌렀을 때 "오늘의 학습 완료"팝업을 띄움 - 웹뷰 행동X, native에서 웹뷰 종료하고 이전화면으로 이동
+            Android.showDialog("CompleteDayStudy");
         }
 
         function pressedBackButton() {
-            Android.showDialog("stopAnswer", null);
+            Android.showDialog("stopAnswer");
+        }
+
+        function onClickStopAnswerButton(){
+            // StopAnswer 팝업에서 아니오 다음에 할래요 눌렀을때 네이티브에서 호출한 메서드
+            // 웹뷰에서는 기획 내용에 맞게 이전화면으로 이동 필요
+            history.back();
         }
 
         window.onload = function(){
@@ -48,7 +55,7 @@
             sendWebviewClose();
         });
         document.getElementById("button2").addEventListener("click", function() {
-            sendCompleteStudy();
+            sendCompleteDayStudy();
         });
     </script>
 </body>
