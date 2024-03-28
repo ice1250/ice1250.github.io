@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <title>iOS-JavaScript 통신</title>
     <style>
         /* 버튼 스타일 */
@@ -35,7 +36,7 @@
         function sendWebviewClose(){
             callIOS({"action": "closeWebView"});
         }
-        
+
         function sendMoveToDetail(){
             callIOS({"action": "moveToDetail", "classSeq":"123", "courseSeq":"123", "lectureSeq":"123", "studyGroupUserSeq":"123"});
         }
