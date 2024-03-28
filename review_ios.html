@@ -43,12 +43,12 @@
 
         function sendNotCompletePreviousStudy(){
             // 위클리 리뷰 화면에서 다른 위클리 리뷰로 이동(하단 버튼)하려고 할 때 이동하려는 주차의 학습을 완료하지 않아 위클리 리뷰로 진입할 수 없을 때
-            callIOS({"action":"showDialog", "type":"NotCompletePreviousStudy"})
+            callIOS({"action":"showDialog", "type":"NotCompletePreviousStudy"});
         }
 
         function sendCompleteWeeklyReview(){
             // 위클리리뷰 - 리얼컨버세이션에서 학습 완료 버튼을 눌렀을 때
-            callIOS({"action":"showDialog", "type":"CompleteWeeklyReview"})
+            callIOS({"action":"showDialog", "type":"CompleteWeeklyReview"});
         }
 
         function pressedBackButton() {
