@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iOS-JavaScript 통신</title>
+    <style>
+        /* 버튼 스타일 */
+        .button {
+            width: 200px; /* 버튼 너비 조정 */
+            height: 50px; /* 버튼 높이 조정 */
+            margin: 10px; /* 버튼 간격 조정 */
+            font-size: 16px; /* 글꼴 크기 조정 */
+        }
+    </style>
+</head>
+<body>
+    <h1>문제풀기 - 오늘의 키포인트</h1>
+    
+    <!-- 버튼들 -->
+    <button id="button1" class="button">웹뷰 닫기</button>
+    <br>
+    <button id="button2" class="button">학습 종료하기</button>
+
+    <script>
+        function callIOS(message) {
+           webkit.messageHandlers.yndiOSScriptHandler.postMessage(message);
+        }
+        function setIosTitle() {
+            callIOS({"action": "setTitle", "title": "DAY05 문제풀기", "leftButtonType":"back", "rightButtonType": "none"});
+        }
+
+        function sendWebviewClose(){
+            callIOS({"action": "closeWebView"});
+        }
+        function sendCompleteDayStudy(){
+            // 키포인트 화면에서 학습 종료하기 버튼을 눌렀을 때 "오늘의 학습 완료"팝업을 띄움 - 웹뷰 행동X, native에서 웹뷰 종료하고 이전화면으로 이동
+            callIOS({"action":"showDialog", "type":"CompleteDayStudy"});
+        }
+
+        function pressedBackButton() {
+            callIOS({"action":"showDialog", "type":"StopAnswer"});
+        }
+        window.onload = function(){
+            setIosTitle();
+        }
+        
+        // 버튼 클릭 이벤트에 콜백 함수 연결
+        document.getElementById("button1").addEventListener("click", function() {
+            sendWebviewClose();
+        });
+        document.getElementById("button2").addEventListener("click", function() {
+            sendCompleteStudy();
+        });
+    </script>
+</body>
+</html>
