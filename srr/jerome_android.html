@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,16 +9,21 @@
     <style>
         /* 버튼 스타일 */
         .button {
-            width: 200px; /* 버튼 너비 조정 */
-            height: 50px; /* 버튼 높이 조정 */
-            margin: 10px; /* 버튼 간격 조정 */
-            font-size: 16px; /* 글꼴 크기 조정 */
+            width: 200px;
+            /* 버튼 너비 조정 */
+            height: 50px;
+            /* 버튼 높이 조정 */
+            margin: 10px;
+            /* 버튼 간격 조정 */
+            font-size: 16px;
+            /* 글꼴 크기 조정 */
         }
     </style>
 </head>
+
 <body>
     <h1>안드로이드 Web -> Native</h1>
-    
+
     <!-- 버튼들 -->
     <button id="button_setTitle" class="button">상단 타이틀 변경(Art)</button>
     <br>
@@ -36,10 +42,10 @@
     <script>
 
         function setTitle() {
-            Android.setTitle("Art", "back", "info");
+            Android.setTitle("Art", "BACK", "INFO");
         }
         function setAndroidTitle() {
-            Android.setTitle("제롬", "back", "info");
+            Android.setTitle("제롬", "BACK", "INFO");
         }
 
         // 웹뷰 닫기
@@ -58,7 +64,7 @@
         }
 
         // 상단 타이틀바 보이기
-        function sendShowTitleBar(){
+        function sendShowTitleBar() {
             Android.showTitleBar();
         }
 
@@ -77,59 +83,60 @@
         function sendPopup5() {
             Android.showPopup("DAY_OBJECTIVE")
         }
-        function onClickStopAnswerButton(){
+        function onClickStopAnswerButton() {
             alert("onClickStopAnswerButton!!!!!");
             // StopAnswer 팝업에서 아니오 다음에 할래요 눌렀을때 네이티브에서 호출한 메서드
             // 웹뷰에서는 기획 내용에 맞게 이전화면으로 이동 필요
             // history.back();
         }
-        
-        function moveToWeeklyReview(){
+
+        function moveToWeeklyReview() {
             alert("moveToWeeklyReview!!!!!");
         }
 
-        function onClickHelpButton(){
+        function onClickHelpButton() {
             alert("onClickHelpButton!!");
         }
-        
+
         function pressedBackButton() {
             Android.closeWebView();
         }
 
-        window.onload = function(){
+        window.onload = function () {
             setAndroidTitle();
         }
 
-        document.getElementById("button_setTitle").addEventListener("click", function() {
+        document.getElementById("button_setTitle").addEventListener("click", function () {
             setTitle();
         });
-        document.getElementById("button_closeWebView").addEventListener("click", function() {
+        document.getElementById("button_closeWebView").addEventListener("click", function () {
             sendCloseWebView();
         });
-        document.getElementById("button_openExternalURL").addEventListener("click", function() {
+        document.getElementById("button_openExternalURL").addEventListener("click", function () {
             sendOpenExternalUrl();
         });
-        document.getElementById("button_hideTitleBar").addEventListener("click", function() {
+        document.getElementById("button_hideTitleBar").addEventListener("click", function () {
             sendHideTitleBar();
         });
-        document.getElementById("button_showTitleBar").addEventListener("click", function() {
+        document.getElementById("button_showTitleBar").addEventListener("click", function () {
             sendShowTitleBar();
         });
-        document.getElementById("button_popup1").addEventListener("click", function() {
+        document.getElementById("button_popup1").addEventListener("click", function () {
             sendPopup1();
         });
-        document.getElementById("button_popup2").addEventListener("click", function() {
+        document.getElementById("button_popup2").addEventListener("click", function () {
             sendPopup2();
         });
-        document.getElementById("button_popup3").addEventListener("click", function() {
+        document.getElementById("button_popup3").addEventListener("click", function () {
             sendPopup3();
         });
-        document.getElementById("button_popup4").addEventListener("click", function() {
+        document.getElementById("button_popup4").addEventListener("click", function () {
             sendPopup4();
         });
-        document.getElementById("button_popup5").addEventListener("click", function() {
+        document.getElementById("button_popup5").addEventListener("click", function () {
             sendPopup5();
         });
     </script>
 </body>
+
 </html>
