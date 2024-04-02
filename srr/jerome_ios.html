@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <title>iOS-JavaScript 통신</title>
+    <style>
+        /* 버튼 스타일 */
+        .button {
+            width: 200px; /* 버튼 너비 조정 */
+            height: 50px; /* 버튼 높이 조정 */
+            margin: 10px; /* 버튼 간격 조정 */
+            font-size: 16px; /* 글꼴 크기 조정 */
+        }
+    </style>
+</head>
+<body>
+    <h1>iOS Web -> Native</h1>
+    
+    <!-- 버튼들 -->
+    <button id="button_setTitle" class="button">상단 타이틀 변경(Art)</button>
+    <br>
+    <button id="button_closeWebView" class="button">웹뷰 닫기</button>
+    <button id="button_openExternalURL" class="button">외부 브라우저 오픈</button>
+    <br>
+    <button id="button_hideTitleBar" class="button">상단 타이틀바 숨기기</button>
+    <button id="button_showTitleBar" class="button">상단 타이틀바 보이기</button>
+    <br>
+    <button id="button_popup1" class="button">팝업요청(STOP_ANSWER)</button>
+    <button id="button_popup2" class="button">팝업요청(INCOMPLETE_DAY)</button>
+    <button id="button_popup3" class="button">팝업요청(COMPLETE_DAY)</button>
+    <button id="button_popup4" class="button">팝업요청(COMPLETE_WEEKLY)</button>
+    <button id="button_popup5" class="button">팝업요청(DAY_OBJECTIVE)</button>
+
+    <script>
+        function callIOS(message) {
+           webkit.messageHandlers.yndSrriOSScriptHandler.postMessage(message);
+        }
+        function setTitle() {
+            callIOS({"action": "setTitle", "title": "Art", "leftButtonType":"back", "rightButtonType": "info"});
+        }
+        function setIosTitle() {
+            callIOS({"action": "setTitle", "title": "제롬", "leftButtonType":"back", "rightButtonType": "info"});
+        }
+
+        // 웹뷰 닫기
+        function sendCloseWebView() {
+            callIOS({"action": "closeWebView"});
+        }
+
+        // 외부 브라우저 오픈
+        function sendOpenExternalUrl() {
+            callIOS({"action": "openExternalURL", "value": "https://www.yanadoo.co.kr/AInativespeakertalk"});
+        }
+
+        // 상단 타이틀바 숨기기
+        function sendHideTitleBar() {
+            callIOS({"action": "hideTitleBar"});
+        }
+
+        // 상단 타이틀바 보이기
+        function sendShowTitleBar(){
+            callIOS({"action": "showTitleBar"});
+        }
+
+        function sendPopup1() {
+            callIOS({"action": "showPopup", "type": "STOP_ANSWER"});
+        }
+        function sendPopup2() {
+            callIOS({"action": "showPopup", "type": "INCOMPLETE_DAY"});
+        }
+        function sendPopup3() {
+            callIOS({"action": "showPopup", "type": "COMPLETE_DAY"});
+        }
+        function sendPopup4() {
+            callIOS({"action": "showPopup", "type": "COMPLETE_WEEKLY"});
+        }
+        function sendPopup5() {
+            callIOS({"action": "showPopup", "type": "DAY_OBJECTIVE"});
+        }
+        function onClickStopAnswerButton(){
+            alert("onClickStopAnswerButton!!!!!");
+            // StopAnswer 팝업에서 아니오 다음에 할래요 눌렀을때 네이티브에서 호출한 메서드
+            // 웹뷰에서는 기획 내용에 맞게 이전화면으로 이동 필요
+            // history.back();
+        }
+        
+        function moveToWeeklyReview(){
+            alert("moveToWeeklyReview!!!!!");
+        }
+
+        function onClickHelpButton(){
+            alert("onClickHelpButton!!");
+        }
+        
+        function pressedBackButton() {
+            Android.closeWebView();
+        }
+
+        window.onload = function(){
+            setIosTitle();
+        }
+
+        document.getElementById("button_setTitle").addEventListener("click", function() {
+            setTitle();
+        });
+        document.getElementById("button_closeWebView").addEventListener("click", function() {
+            sendCloseWebView();
+        });
+        document.getElementById("button_openExternalURL").addEventListener("click", function() {
+            sendOpenExternalUrl();
+        });
+        document.getElementById("button_hideTitleBar").addEventListener("click", function() {
+            sendHideTitleBar();
+        });
+        document.getElementById("button_showTitleBar").addEventListener("click", function() {
+            sendShowTitleBar();
+        });
+        document.getElementById("button_popup1").addEventListener("click", function() {
+            sendPopup1();
+        });
+        document.getElementById("button_popup2").addEventListener("click", function() {
+            sendPopup2();
+        });
+        document.getElementById("button_popup3").addEventListener("click", function() {
+            sendPopup3();
+        });
+        document.getElementById("button_popup4").addEventListener("click", function() {
+            sendPopup4();
+        });
+        document.getElementById("button_popup5").addEventListener("click", function() {
+            sendPopup5();
+        });
+    </script>
+</body>
+</html>
