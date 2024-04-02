@@ -95,7 +95,7 @@
         }
         
         function pressedBackButton() {
-            Android.closeWebView();
+            callIOS({"action": "closeWebView", "type": "DAY_OBJECTIVE"});
         }
 
         window.onload = function(){
