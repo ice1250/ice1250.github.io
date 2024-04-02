@@ -19,6 +19,8 @@
     <h1>안드로이드 Web -> Native</h1>
     
     <!-- 버튼들 -->
+    <button id="button_setTitle" class="button">상단 타이틀 변경(Art)</button>
+    <br>
     <button id="button_closeWebView" class="button">웹뷰 닫기</button>
     <button id="button_openExternalURL" class="button">외부 브라우저 오픈</button>
     <br>
@@ -32,6 +34,13 @@
     <button id="button_popup5" class="button">팝업요청(DAY_OBJECTIVE)</button>
 
     <script>
+
+        function setTitle() {
+            Android.setTitle("Art", "back", "info");
+        }
+        function setAndroidTitle() {
+            Android.setTitle("제롬", "back", "info");
+        }
 
         // 웹뷰 닫기
         function sendCloseWebView() {
@@ -68,8 +77,31 @@
         function sendPopup5() {
             Android.showPopup("DAY_OBJECTIVE")
         }
+        function onClickStopAnswerButton(){
+            // StopAnswer 팝업에서 아니오 다음에 할래요 눌렀을때 네이티브에서 호출한 메서드
+            // 웹뷰에서는 기획 내용에 맞게 이전화면으로 이동 필요
+            history.back();
+        }
+        
+        function moveToWeeklyReview(){
+            alert("moveToWeeklyReview!!!!!");
+        }
 
-        // 버튼 클릭 이벤트에 콜백 함수 연결
+        function onClickHelpButton(){
+            alert("onClickHelpButton!!");
+        }
+        
+        function pressedBackButton() {
+            Android.closeWebView();
+        }
+
+        window.onload = function(){
+            setAndroidTitle();
+        }
+
+        document.getElementById("button_setTitle").addEventListener("click", function() {
+            setTitle();
+        });
         document.getElementById("button_closeWebView").addEventListener("click", function() {
             sendCloseWebView();
         });
