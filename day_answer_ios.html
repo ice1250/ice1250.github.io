@@ -34,13 +34,13 @@
         function sendWebviewClose(){
             callIOS({"action": "closeWebView"});
         }
-        function sendCompleteDayStudy(){
+        function sendCompleteDay(){
             // 키포인트 화면에서 학습 종료하기 버튼을 눌렀을 때 "오늘의 학습 완료"팝업을 띄움 - 웹뷰 행동X, native에서 웹뷰 종료하고 이전화면으로 이동
-            callIOS({"action":"showDialog", "type":"CompleteDayStudy"});
+            callIOS({"action":"showPopup", "type":"COMPLETE_DAY"});
         }
 
         function pressedBackButton() {
-            callIOS({"action":"showDialog", "type":"StopAnswer"});
+            callIOS({"action":"showPopup", "type":"STOP_ANSWER"});
         }
 
         function onClickStopAnswerButton(){
@@ -58,7 +58,7 @@
             sendWebviewClose();
         });
         document.getElementById("button2").addEventListener("click", function() {
-            sendCompleteDayStudy();
+            sendCompleteDay();
         });
     </script>
 </body>
