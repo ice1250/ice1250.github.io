@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <title>Android-JavaScript 통신</title>
+    <style>
+        /* 버튼 스타일 */
+        .button {
+            width: 200px; /* 버튼 너비 조정 */
+            height: 50px; /* 버튼 높이 조정 */
+            margin: 10px; /* 버튼 간격 조정 */
+            font-size: 16px; /* 글꼴 크기 조정 */
+        }
+    </style>
+</head>
+<body>
+    <h1>안드로이드 Web -> Native</h1>
+    
+    <!-- 버튼들 -->
+    <button id="button_closeWebView" class="button">웹뷰 닫기</button>
+    <button id="button_openExternalURL" class="button">외부 브라우저 오픈</button>
+    <br>
+    <button id="button_hideTitleBar" class="button">상단 타이틀바 숨기기</button>
+    <button id="button_showTitleBar" class="button">상단 타이틀바 보이기</button>
+    <br>
+    <button id="button_popup1" class="button">팝업요청(STOP_ANSWER)</button>
+    <button id="button_popup2" class="button">팝업요청(INCOMPLETE_DAY)</button>
+    <button id="button_popup3" class="button">팝업요청(COMPLETE_DAY)</button>
+    <button id="button_popup4" class="button">팝업요청(COMPLETE_WEEKLY)</button>
+    <button id="button_popup5" class="button">팝업요청(DAY_OBJECTIVE)</button>
+
+    <script>
+
+        // 웹뷰 닫기
+        function sendCloseWebView() {
+            Android.closeWebView();
+        }
+
+        // 외부 브라우저 오픈
+        function sendOpenExternalUrl() {
+            Android.openExternalURL("https://www.yanadoo.co.kr/AInativespeakertalk");
+        }
+
+        // 상단 타이틀바 숨기기
+        function sendHideTitleBar() {
+            Android.hideTitleBar();
+        }
+
+        // 상단 타이틀바 보이기
+        function sendShowTitleBar(){
+            Android.showTitleBar();
+        }
+
+        function sendPopup1() {
+            Android.showPopup("STOP_ANSWER")
+        }
+        function sendPopup2() {
+            Android.showPopup("INCOMPLETE_DAY")
+        }
+        function sendPopup3() {
+            Android.showPopup("COMPLETE_DAY")
+        }
+        function sendPopup4() {
+            Android.showPopup("COMPLETE_WEEKLY")
+        }
+        function sendPopup5() {
+            Android.showPopup("DAY_OBJECTIVE")
+        }
+
+        // 버튼 클릭 이벤트에 콜백 함수 연결
+        document.getElementById("button_closeWebView").addEventListener("click", function() {
+            sendCloseWebView();
+        });
+        document.getElementById("button_openExternalURL").addEventListener("click", function() {
+            sendOpenExternalUrl();
+        });
+        document.getElementById("button_hideTitleBar").addEventListener("click", function() {
+            sendHideTitleBar();
+        });
+        document.getElementById("button_showTitleBar").addEventListener("click", function() {
+            sendShowTitleBar();
+        });
+        document.getElementById("button_popup1").addEventListener("click", function() {
+            sendPopup1();
+        });
+        document.getElementById("button_popup2").addEventListener("click", function() {
+            sendPopup2();
+        });
+        document.getElementById("button_popup3").addEventListener("click", function() {
+            sendPopup3();
+        });
+        document.getElementById("button_popup4").addEventListener("click", function() {
+            sendPopup4();
+        });
+        document.getElementById("button_popup5").addEventListener("click", function() {
+            sendPopup5();
+        });
+    </script>
+</body>
+</html>
